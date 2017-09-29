@@ -1,0 +1,48 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+        <item name="android:actionBarItemBackground">@null</item>
+    </style>
+
+    <style name="ToolbarStyle">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:elevation" tools:targetApi="lollipop">@dimen/default_elevation</item>
+    </style>
+
+    <style name="SearchToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/default_search_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_search_margin</item>
+        <item name="android:layout_marginStart">@dimen/default_search_margin</item>
+        <item name="android:layout_marginTop">@dimen/default_search_margin</item>
+        <item name="layout_behavior">com.lapism.searchview.SearchBehavior</item>
+        <item name="search_background_color">@color/colorPrimaryDark</item>
+        <item name="search_hide_on_keyboard_close">true</item>
+        <item name="search_clear_on_close">true</item>
+        <item name="search_icon_color">@color/white</item>
+        <item name="search_navigation_icon">@drawable/ic_search</item>
+        <item name="search_shadow">false</item>
+        <item name="search_text_color">@color/white</item>
+        <item name="search_text_size">@dimen/app_text_size_search</item>
+        <item name="search_text_style">normal</item>
+        <item name="search_version">menu_item</item>
+        <item name="search_version_margins">menu_item</item>
+        <item name="search_voice">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default metrics -->
+    <dimen name="default_ico_size">32dp</dimen>
+    <dimen name="default_extra_large_margin">64dp</dimen>
+    <dimen name="default_medium_extra_large_margin">56dp</dimen>
+    <dimen name="default_medium_large_margin">48dp</dimen>
+    <dimen name="default_large_margin">32dp</dimen>
+    <dimen name="default_medium_margin">24dp</dimen>
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="default_small_margin">8dp</dimen>
+    <dimen name="default_extra_small_margin">4dp</dimen>
+    <dimen name="default_search_margin">2dp</dimen>
+    <dimen name="default_elevation">4dp</dimen>
+    <dimen name="default_elevation_small">2dp</dimen>
+
+    <!-- Negative metrics -->
+    <dimen name="negative_default_medium_margin">-24dp</dimen>
+    <dimen name="negative_default_margin">-16dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="app_text_size_extra_extra_small">10sp</dimen>
+    <dimen name="app_text_size_extra_small">11sp</dimen>
+    <dimen name="app_text_size_small">12sp</dimen>
+    <dimen name="app_text_size_medium">16sp</dimen>
+    <dimen name="app_text_size_large">18sp</dimen>
+    <dimen name="app_text_size_xlarge">20sp</dimen>
+    <dimen name="app_text_size_extra_large">24sp</dimen>
+    <dimen name="app_text_size_search">6.5sp</dimen>
+
+</resources>

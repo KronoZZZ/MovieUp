@@ -1,0 +1,25 @@
+<resources>
+
+    <!--General strings-->
+    <string name="app_name">Browse Movie</string>
+    <string name="app_welcome_text">Welcome to EasyMovie</string>
+    <string name="app_warning">Warning</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="action_ok">OK</string>
+    <string name="action_add">Add</string>
+    <string name="action_send">Send</string>
+    <string name="action_close">Close</string>
+    <string name="action_change">Change</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_x">X</string>
+    <string name="action_empty"> </string>
+
+    <string name="movie_transition_name_poster">movie_poster</string>
+    <string name="movie_transition_name_title">movie_title</string>
+
+</resources>

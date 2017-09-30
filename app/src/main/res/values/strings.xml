@@ -1,8 +1,8 @@
 <resources>
 
     <!--General strings-->
-    <string name="app_name">Browse Movie</string>
-    <string name="app_welcome_text">Welcome to EasyMovie</string>
+    <string name="app_name">Movier</string>
+    <string name="app_welcome_text">Welcome to Movier</string>
     <string name="app_warning">Warning</string>
     <string name="action_yes">Yes</string>
     <string name="action_no">No</string>

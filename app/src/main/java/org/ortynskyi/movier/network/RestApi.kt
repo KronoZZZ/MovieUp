@@ -11,14 +11,51 @@ import java.util.concurrent.TimeUnit
 
 class RestApi {
 
+    private val COUNTRIES_BASE_URL: String = "https://restcountries.eu/rest/v1/"
+
     private val MOVIES_BASE_URL: String = "https://api.themoviedb.org/"
     private val MOVIES_API_KEY: String = "efb4290d9f59cc933f0d050df363db5a"
 
     val movieApi: MovieApi
+    val countryApi: CountryApi
 
     init {
+
+        val movieClientBuilder = createClientBuilder()
+
+        movieClientBuilder.addInterceptor({
+            val original: Request = it.request()
+            val httpUrl: HttpUrl = original.url()
+            val url: HttpUrl = httpUrl.newBuilder()
+                    .addQueryParameter("api_key", MOVIES_API_KEY)
+                    .build()
+            val requestBuilder: Request.Builder = original.newBuilder().url(url)
+            val request: Request = requestBuilder.build()
+            it.proceed(request)
+        })
+
+        val movieRetrofit = Retrofit.Builder()
+                .baseUrl(MOVIES_BASE_URL)
+                .client(movieClientBuilder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+
+        val countryRetrofit = Retrofit.Builder()
+                .baseUrl(COUNTRIES_BASE_URL)
+                .client(createClientBuilder().build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+
+
+        movieApi = movieRetrofit.create(MovieApi::class.java)
+        countryApi = countryRetrofit.create(CountryApi::class.java)
+    }
+
+    private fun createClientBuilder() : OkHttpClient.Builder {
         val clientBuilder = OkHttpClient.Builder()
-        clientBuilder.readTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .connectTimeout(15, TimeUnit.SECONDS)
 
@@ -27,24 +64,6 @@ class RestApi {
         logging.level = HttpLoggingInterceptor.Level.BODY
         clientBuilder.addNetworkInterceptor(logging)
 
-        clientBuilder.addInterceptor({
-            val original: Request = it.request()
-            val httpUrl: HttpUrl = original.url()
-            val url: HttpUrl = httpUrl.newBuilder()
-                    .addQueryParameter("api_key", MOVIES_API_KEY)
-                    .build()
-            val requestBuilder : Request.Builder = original.newBuilder().url(url)
-            val request: Request = requestBuilder.build()
-            it.proceed(request)
-        })
-
-        val movieRetrofit = Retrofit.Builder()
-                .baseUrl(MOVIES_BASE_URL)
-                .client(clientBuilder.build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
-
-        movieApi = movieRetrofit.create(MovieApi::class.java)
+        return clientBuilder
     }
 }
